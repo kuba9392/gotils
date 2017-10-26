@@ -1,4 +1,4 @@
-package go_tils
+package gotils
 
 type marshallable interface {
 	MarshalJSON() (string, error)

@@ -1,4 +1,4 @@
-package go_tils
+package gotils
 
 import (
 	"net/http"
