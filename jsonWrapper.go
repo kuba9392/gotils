@@ -1,3 +1,4 @@
+//Package which contains golang utilities to make designing new services more cleaner and easier.
 package gotils
 
 import (
@@ -8,15 +9,18 @@ import (
 
 type jsonWrapper struct {}
 
+//Constructor for jsonWrapper
 func NewJsonWrapper() *jsonWrapper {
 	return &jsonWrapper{}
 }
 
+//This function allows you to wrap created response to JSON format
 func (w *jsonWrapper) Wrap(rw http.ResponseWriter) *jsonWrapper {
 	rw.Header().Set("Content-Type", constants.ContentTypeJSON)
 	return w
 }
 
+//Encode creates JSON message from self-defined type which contains marshallable interface
 func (w *jsonWrapper) Encode(m marshallable) (string, error) {
 	serialized := m.jsonSerialize()
 	encoded, err := json.Marshal(serialized)
@@ -26,6 +30,8 @@ func (w *jsonWrapper) Encode(m marshallable) (string, error) {
 	return string(encoded), nil
 }
 
+//Decode returns map with data from JSON message
+//You can implement this function to createFromArray method in your marshallable type
 func (w *jsonWrapper) Decode(message string) (map[string]interface{}, error) {
 	decoded := make(map[string]interface{})
 	err := json.Unmarshal([]byte(message), &decoded)
