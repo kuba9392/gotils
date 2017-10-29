@@ -2,18 +2,18 @@
 package gotils
 
 import (
-	"net/http"
-	"github.com/stretchr/codecs/constants"
 	"encoding/json"
+	"github.com/stretchr/codecs/constants"
+	"net/http"
 )
 
 //jsonWrapper is a type which helps you with many processes related with JSON format
 //For example, you can wrap HTTP response to JSON content-type or quickly encode self-defined type.
-type jsonWrapper struct {}
+type jsonWrapper struct{}
 
 //Constructor for jsonWrapper
-func NewJsonWrapper() *jsonWrapper {
-	return &jsonWrapper{}
+func newJsonWrapper() jsonWrapper {
+	return jsonWrapper{}
 }
 
 //This function allows you to wrap created response to JSON format

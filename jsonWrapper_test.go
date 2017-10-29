@@ -8,8 +8,8 @@ type dummyMarshallable struct {
 	name string
 }
 
-func NewDummyMarshallable(name string) *dummyMarshallable {
-	return &dummyMarshallable{name}
+func newDummyMarshallable(name string) dummyMarshallable {
+	return dummyMarshallable{name}
 }
 
 func (d *dummyMarshallable) jsonSerialize() map[string]interface{} {
@@ -19,10 +19,10 @@ func (d *dummyMarshallable) jsonSerialize() map[string]interface{} {
 }
 
 func TestJsonWrapperEncode(t *testing.T) {
-	dummy := NewDummyMarshallable("test")
-	wrapper := NewJsonWrapper()
+	dummy := newDummyMarshallable("test")
+	wrapper := newJsonWrapper()
 
-	encoded, err := wrapper.Encode(dummy)
+	encoded, err := wrapper.Encode(&dummy)
 	if err != nil {
 		t.Error("got error: ", err)
 	}
@@ -33,7 +33,7 @@ func TestJsonWrapperEncode(t *testing.T) {
 }
 
 func TestJsonWrapperDecode(t *testing.T) {
-	wrapper := NewJsonWrapper()
+	wrapper := newJsonWrapper()
 	testMessage := "{\"name\":\"test\"}"
 
 	props := make(map[string]interface{})
