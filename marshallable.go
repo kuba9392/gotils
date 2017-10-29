@@ -1,6 +1,5 @@
 package gotils
 
 type marshallable interface {
-	MarshalJSON() (string, error)
-	UnmarshalJSON() error
+	jsonSerialize() map[string]interface{}
 }
