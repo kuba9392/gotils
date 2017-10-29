@@ -7,6 +7,8 @@ import (
 	"encoding/json"
 )
 
+//jsonWrapper is a type which helps you with many processes related with JSON format
+//For example, you can wrap HTTP response to JSON content-type or quickly encode self-defined type.
 type jsonWrapper struct {}
 
 //Constructor for jsonWrapper
