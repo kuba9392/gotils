@@ -1,4 +1,4 @@
-//Package which contains golang utilities to make designing new services more cleaner and easier.
+//Package gotils contains golang utilities to make designing new services more cleaner and easier.
 package gotils
 
 import (
@@ -12,7 +12,7 @@ import (
 type jsonWrapper struct{}
 
 //Constructor for jsonWrapper
-func newJsonWrapper() jsonWrapper {
+func newJSONWrapper() jsonWrapper {
 	return jsonWrapper{}
 }
 

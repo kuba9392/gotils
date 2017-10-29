@@ -20,7 +20,7 @@ func (d *dummyMarshallable) jsonSerialize() map[string]interface{} {
 
 func TestJsonWrapperEncode(t *testing.T) {
 	dummy := newDummyMarshallable("test")
-	wrapper := newJsonWrapper()
+	wrapper := newJSONWrapper()
 
 	encoded, err := wrapper.Encode(&dummy)
 	if err != nil {
@@ -33,7 +33,7 @@ func TestJsonWrapperEncode(t *testing.T) {
 }
 
 func TestJsonWrapperDecode(t *testing.T) {
-	wrapper := newJsonWrapper()
+	wrapper := newJSONWrapper()
 	testMessage := "{\"name\":\"test\"}"
 
 	props := make(map[string]interface{})
