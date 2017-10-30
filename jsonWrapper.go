@@ -12,8 +12,9 @@ import (
 type jsonWrapper struct{}
 
 //Constructor for jsonWrapper
-func newJSONWrapper() jsonWrapper {
-	return jsonWrapper{}
+func NewJsonWrapper() *jsonWrapper {
+	wrapper := jsonWrapper{}
+	return &wrapper
 }
 
 //This function allows you to wrap created response to JSON format
