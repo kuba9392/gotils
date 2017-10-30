@@ -12,7 +12,7 @@ func newDummyMarshallable(name string) dummyMarshallable {
 	return dummyMarshallable{name}
 }
 
-func (d *dummyMarshallable) jsonSerialize() map[string]interface{} {
+func (d *dummyMarshallable) JsonSerialize() map[string]interface{} {
 	props := make(map[string]interface{})
 	props["name"] = d.name
 	return props

@@ -25,7 +25,7 @@ func (w *jsonWrapper) Wrap(rw http.ResponseWriter) *jsonWrapper {
 
 //Encode creates JSON message from self-defined type which contains Marshallable interface
 func (w *jsonWrapper) Encode(m Marshallable) (string, error) {
-	serialized := m.jsonSerialize()
+	serialized := m.JsonSerialize()
 	encoded, err := json.Marshal(serialized)
 	if err != nil {
 		return "", err
