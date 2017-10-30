@@ -22,8 +22,8 @@ func (w *jsonWrapper) Wrap(rw http.ResponseWriter) *jsonWrapper {
 	return w
 }
 
-//Encode creates JSON message from self-defined type which contains marshallable interface
-func (w *jsonWrapper) Encode(m marshallable) (string, error) {
+//Encode creates JSON message from self-defined type which contains Marshallable interface
+func (w *jsonWrapper) Encode(m Marshallable) (string, error) {
 	serialized := m.jsonSerialize()
 	encoded, err := json.Marshal(serialized)
 	if err != nil {
@@ -33,7 +33,7 @@ func (w *jsonWrapper) Encode(m marshallable) (string, error) {
 }
 
 //Decode returns map with data from JSON message
-//You can implement this function to createFromArray method in your marshallable type
+//You can implement this function to createFromArray method in your Marshallable type
 func (w *jsonWrapper) Decode(message string) (map[string]interface{}, error) {
 	decoded := make(map[string]interface{})
 	err := json.Unmarshal([]byte(message), &decoded)

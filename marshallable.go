@@ -1,5 +1,5 @@
 package gotils
 
-type marshallable interface {
+type Marshallable interface {
 	jsonSerialize() map[string]interface{}
 }
